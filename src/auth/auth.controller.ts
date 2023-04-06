@@ -7,8 +7,8 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @UseGuards(AuthGuard('local'))
-  @Post()
+  @Post('auth/login')
   async login(@Request() req) {
-    return this.authService.validateUser(req.user, req.pass);
+    return this.authService.login(req.email || req.phone);
   }
 }
