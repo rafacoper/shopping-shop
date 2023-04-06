@@ -21,7 +21,7 @@ export class UsersService {
     return this.userModel.findById(id).exec();
   }
 
-  async findOne(userInfo: string | undefined): Promise<any> {
+  async findOne(userInfo: string): Promise<any> {
     const user = this.userModel.find({
       email: userInfo,
       $or: [{ phone: userInfo }],
