@@ -13,7 +13,7 @@ import { UsersController } from './users.controller';
       },
     ]),
   ],
-  exports: [],
+  exports: [UsersService],
   controllers: [UsersController],
   providers: [UsersService],
 })
