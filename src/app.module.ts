@@ -23,6 +23,7 @@ import { AppConfigurationService } from './configuration/app-configuration.servi
       },
     }),
     UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

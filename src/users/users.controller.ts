@@ -16,6 +16,7 @@ export class UsersController {
 
   @Post()
   async create(@Body() user: User): Promise<User> {
+    console.log('PASSOU');
     return this.usersService.create(user);
   }
 
