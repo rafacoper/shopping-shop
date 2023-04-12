@@ -16,6 +16,7 @@ export class UsersController {
 
   @Post()
   async create(@Body() user: User): Promise<User> {
+    console.log('PASSOU');
     return this.usersService.create(user);
   }
 
@@ -27,6 +28,11 @@ export class UsersController {
   @Get()
   async findById(@Param('id') id: string): Promise<User> {
     return this.usersService.findById(id);
+  }
+
+  @Get('/exact')
+  async findOne(@Body() item: any): Promise<User> {
+    return this.usersService.findOne(item);
   }
 
   @Put()
