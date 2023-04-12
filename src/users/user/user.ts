@@ -3,16 +3,16 @@ import { Document } from 'mongoose';
 
 @Schema()
 export class User extends Document {
-  @Prop({ type: String })
+  @Prop()
   name: string;
 
-  @Prop({ type: String })
+  @Prop()
   email: string;
 
-  @Prop({ type: String })
+  @Prop()
   phone: string;
 
-  @Prop({ type: String })
+  @Prop()
   password: string;
 }
 

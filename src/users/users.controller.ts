@@ -30,6 +30,11 @@ export class UsersController {
     return this.usersService.findById(id);
   }
 
+  @Get('/exact')
+  async findOne(@Body() item: any): Promise<User> {
+    return this.usersService.findOne(item);
+  }
+
   @Put()
   async update(@Body() id: string, user: User): Promise<User> {
     return this.usersService.update(id, user);

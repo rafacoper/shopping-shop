@@ -14,18 +14,16 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async signIn(emailOrPhone: string, userPass: string): Promise<any> {
-    console.log(
-      '🚀 ~ file: auth.service.ts:18 ~ AuthService ~ signIn ~ emailOrPhone:',
-      emailOrPhone,
-    );
-    const user = await this.usersService.findOne(emailOrPhone);
-    console.log('USER ::: ', user);
+  async signIn(input): Promise<any> {
+    const inputed = input.email
+      ? { email: input.email }
+      : { phone: input.phone };
+    const user = await this.usersService.findOne(inputed);
 
     if (!user) {
       throw new NotAcceptableException();
     }
-    const validPassword = await compare(userPass, user.password);
+    const validPassword = await compare(input.password, user.password);
 
     if (!validPassword) {
       throw new UnauthorizedException();

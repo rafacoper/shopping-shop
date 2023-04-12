@@ -17,9 +17,8 @@ export class AuthController {
 
   @HttpCode(HttpStatus.OK)
   @Post('login')
-  signIn(@Body() user: string, password: string) {
-    console.log('PASSOU');
-    return this.authService.signIn(user, password);
+  signIn(@Body() inputData) {
+    return this.authService.signIn(inputData);
   }
 
   @UseGuards(AuthGuard)
